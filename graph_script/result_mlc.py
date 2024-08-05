@@ -2,9 +2,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Directory Info
-output_path="../raw_data"
-result_path="../result"
-graph_path="../graph"
+output_path="../raw_data/"
+result_path="../result/"
+graph_path="../graph/"
 
 # RW ratio
 MODES=[0, 5, 2, 3, 4, 12]
@@ -15,7 +15,7 @@ COLORS=['red', 'orange', 'green', 'blue', 'navy', 'purple']
 NODES=[0,1]
 
 def make_csv(result_file, node, mode) :
-    output_file = output_path + "/mlc_node" + str(node) + "_mode" + str(mode)
+    output_file = output_path + "mlc_node" + str(node) + "_mode" + str(mode)
     ratio=RATIO[MODES.index(mode)]
     latency = []
     bandwidth = []
@@ -38,11 +38,11 @@ def make_csv(result_file, node, mode) :
 
 def make_graph(node) : 
     if node :
-        result_file = result_path + "/mlc_remote.csv"
-        graph_file = graph_path + "/mlc_remote.png"
+        result_file = result_path + "mlc_remote.csv"
+        graph_file = graph_path + "mlc_remote.png"
     else :
-        result_file = result_path + "/mlc_local.csv"
-        graph_file = graph_path + "/mlc_local.png"
+        result_file = result_path + "mlc_local.csv"
+        graph_file = graph_path + "mlc_local.png"
     
     data = pd.read_csv(result_file)
 
@@ -69,9 +69,9 @@ def make_graph(node) :
 
 for node in NODES :
     if node :
-        result_file = result_path + "/mlc_remote.csv"
+        result_file = result_path + "mlc_remote.csv"
     else :
-        result_file = result_path + "/mlc_local.csv"
+        result_file = result_path + "mlc_local.csv"
 
     with open(result_file, "w") as file :
         file.write("r:w,bandwidth(MB/s),latency(ns)\n")
