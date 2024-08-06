@@ -4,4 +4,5 @@ result_path="../result/"
 graph_path="../graph/"
 
 # App
-APPS=["XSBench"]
+# APPS=["XSBench", "bc", "bfs", "cc", "cc_sv", "converter", "pr", "pr_spmv", "sssp", "tc"]
+APPS=["bc", "bfs"]
