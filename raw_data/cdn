@@ -1,0 +1,118 @@
+===JSON Config===
+{
+  "cache_config": {
+    "cacheSizeMB": 8192, 
+    "poolRebalanceIntervalSec": 0
+  }, 
+  "test_config": 
+    {
+      "opRatePerSec": 240000,
+
+      "addChainedRatio": 0.0, 
+      "delRatio": 0.0, 
+      "enableLookaside": true, 
+      "getRatio": 0.9911552928593673, 
+      "keySizeRange": [
+        1, 
+        8, 
+        64
+      ], 
+      "keySizeRangeProbability": [
+        0.3, 
+        0.7
+      ], 
+      "loneGetRatio": 0.008844707140632665, 
+      "numKeys": 8935378, 
+      "numOps": 500000, 
+      "numThreads": 48, 
+      "popDistFile": "pop.json", 
+       
+      "setRatio": 0.0, 
+      "valSizeDistFile": "sizes.json"
+    }
+ 
+}
+
+reading distribution params from /home/osm/workspace/ABC/app/CacheLib/opt/cachelib/test_configs/hit_ratio/cdn/sizes.json
+reading distribution params from /home/osm/workspace/ABC/app/CacheLib/opt/cachelib/test_configs/hit_ratio/cdn/pop.json
+Welcome to OSS version of cachebench
+Created 7,675,250 keys in 0.27 mins
+Generating 24.00M sampled accesses
+Generated access patterns in 0.00 mins
+Total 24.00M ops to be run
+19:42:56       0.00M ops completed. Hit Ratio   0.00% (RAM   0.00%, NVM   0.00%)
+19:43:56      14.61M ops completed. Hit Ratio  11.13% (RAM  11.13%, NVM   0.00%)
+== Test Results ==
+== Allocator Stats ==
+Items in RAM  : 236,395
+Items in NVM  : 0
+Alloc Attempts: 21,305,527 Success: 100.00%
+Evict Attempts: 21,069,003 Success: 100.00%
+RAM Evictions : 21,068,993
+Fraction of pool 0 used : 1.00
+Cache Gets    : 24,000,000
+Hit Ratio     :  11.18%
+NVM Gets      :               0, Coalesced :   0.00%
+NVM Puts      :               0, Success   : 100.00%, Clean   :   0.00%, AbortsFromDel   :        0, AbortsFromGet   :        0
+NVM Evicts    :               0, Clean     :   0.00%, Unclean :       0, Double          :        0
+NVM Deletes   :               0 Skipped Deletes:   0.00%
+Total eviction executed 21068993
+
+== Throughput for  ==
+Total Ops : 24.00 million
+Total sets: 21,316,335
+get       :   242,013/s, success   :  11.18%
+couldExist:         0/s, success   :   0.00%
+set       :   214,951/s, success   :  99.95%
+del       :         0/s, found     :   0.00%
+
+Elapsed Time: 137.084s
+    CPU Time: 1354.440s
+    Memory Bound: 16.4% of Pipeline Slots
+        L1 Bound: 23.0% of Clockticks
+        L2 Bound: 0.5% of Clockticks
+        L3 Bound: 3.4% of Clockticks
+        DRAM Bound: 7.4% of Clockticks
+            DRAM Bandwidth Bound: 0.0% of Elapsed Time
+        Store Bound: 3.6% of Clockticks
+        NUMA: % of Remote Accesses: 51.6%
+        UPI Utilization Bound: 0.0% of Elapsed Time
+    Loads: 802,464,073,200
+    Stores: 620,798,623,400
+    LLC Miss Count: 440,030,800
+        Local Memory Access Count: 110,007,700
+        Remote Memory Access Count: 130,009,100
+        Remote Cache Access Count: 85,005,950
+    Average Latency (cycles): 19
+    Total Thread Count: 148
+    Paused Time: 0s
+
+Bandwidth Utilization
+Bandwidth Domain                  Platform Maximum  Observed Maximum  Average  % of Elapsed Time with High BW Utilization(%)
+--------------------------------  ----------------  ----------------  -------  ---------------------------------------------
+DRAM, GB/sec                      70                          35.400   14.324                                           0.0%
+DRAM Single-Package, GB/sec       35                          19.400    7.854                                           0.0%
+UPI Utilization Single-link, (%)  100                         34.200   13.874                                           0.0%
+Collection and Platform Info
+    Application Command Line: /home/osm/workspace/ABC/app/CacheLib/opt/cachelib/bin/cachebench "-json_test_config" "/home/osm/workspace/ABC/app/CacheLib/opt/cachelib/test_configs/hit_ratio/cdn/config.json" 
+    User Name: root
+    Operating System: 5.11.0-27-generic DISTRIB_ID=Ubuntu DISTRIB_RELEASE=20.04 DISTRIB_CODENAME=focal DISTRIB_DESCRIPTION="Ubuntu 20.04.3 LTS"
+    Computer Name: osm-X11DAi-N
+    Result Size: 842.3 MB 
+    Collection start time: 10:42:21 08/08/2024 UTC
+    Collection stop time: 10:44:38 08/08/2024 UTC
+    Collector Type: Event-based sampling driver
+    CPU
+        Name: Intel(R) Xeon(R) Processor code named Cascadelake
+        Frequency: 2.400 GHz
+        Logical CPU Count: 20
+        Max DRAM Single-Package Bandwidth: 35.000 GB/s
+        LLC size: 14.4 MB 
+        Cache Allocation Technology
+            Level 2 capability: not detected
+            Level 3 capability: available
+
+If you want to skip descriptions of detected performance issues in the report,
+enter: vtune -report summary -report-knob show-issues=false -r <my_result_dir>.
+Alternatively, you may view the report in the csv format: vtune -report
+<report_name> -format=csv.
