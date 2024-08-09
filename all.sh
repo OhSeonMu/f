@@ -1,28 +1,24 @@
 #!/bin/bash
 
 #################################
-#	For Run Script		#
+#	For Run MLC		#
 #################################
 
 :<<"END"
-# For run_mlc.sh
 ./run_mlc.sh
-END
-
-# For cal_bandwidth.sh
-./cal_bandwidth.sh
-
-#################################
-#	For Graph Script	#
-#################################
 
 cd graph_script
-
-:<<"END"
-# For run_mlc.sh
-python3 result_mlc.py
+python3 ./graph_script/result_mlc.py
+cd ../
 END
 
-# For cal_bandwidth.sh
-python3 app_bandwidth.py
+#################################
+#	For Cal Bandwidth	#
+#################################
+
+./cal_bandwidth.sh
+
+cd graph_script
+python3 ./app_bandwidth.py
+cd ../
 

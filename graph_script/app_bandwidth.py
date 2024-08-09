@@ -10,6 +10,7 @@ def make_graph(app) :
 
     plt.figure(figsize=(10, 5))
     plt.plot(data['Bin End Time'],data['Total, GB/sec:Self'],marker='o', linestyle='-', color="blue")
+    plt.axhline(y=20, color='r', linestyle='--')
 
     plt.title(app)
     plt.xlabel('Time (s)')

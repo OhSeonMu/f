@@ -4,9 +4,10 @@
 OUTPUT_PATH="$(pwd)/raw_data"
 RESULT_PATH="$(pwd)/result"
 
+:<<"END"
 # APP INFO 
 APPS=(
-	"XSBench" "bc" "bfs" "cc" "cc_sv" "converter" "pr" "pr_spmv" "sssp" "tc"
+	# "XSBench" "bc" "bfs" "cc" "cc_sv" "converter" "pr" "pr_spmv" "sssp" "tc"
 )
 
 APP_PATHS=(
@@ -23,14 +24,31 @@ APP_PATHS=(
 	"$(pwd)/app/gapbs/tc -g 28 -n 2"
 )
 
-# FOR RUN_MLC
-# RW ratio (1:1 2:1 3:1 3:2 4:1)
-MODES=(5 2 3 4 12)
-NODES=(0 1)
-
 # FOR CAL_BANDWIDTH
 TIME_BINS=(
 	"200" "563" "419" "402" "496" "396" "506" "534" "415" "609"
 )
 
 APP_NUMBER=${#APPS[@]}
+END
+
+# TMP
+APPS=(
+	"cdn"
+)
+
+APP_PATHS=(
+	"$(pwd)/app/CacheLib/opt/cachelib/bin/cachebench -json_test_config $(pwd)/app/CacheLib/opt/cachelib/test_configs/hit_ratio/cdn/config.json"
+)
+
+TIME_BINS=(
+	"30"
+)
+
+APP_NUMBER=${#APPS[@]}
+
+# FOR RUN_MLC
+# RW ratio (1:1 2:1 3:1 3:2 4:1)
+MODES=(5 2 3 4 12)
+NODES=(0 1)
+
