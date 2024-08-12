@@ -4,10 +4,25 @@
 OUTPUT_PATH="$(pwd)/raw_data"
 RESULT_PATH="$(pwd)/result"
 
+# NUMCATL PATH
+# numactl_path=$(pwd)/library/numactl
+
+# UTIL PATH
+UTIL_PATH=$(pwd)/util
+
 :<<"END"
-# APP INFO 
+#########################################
+#	    For run_mlc.sh		#
+#########################################
+# RW ratio (1:1 2:1 3:1 3:2 4:1)
+MODES=(5 2 3 4 12)
+NODES=(0 1)
+
+#########################################
+#	For cal_bandwidth.sh		#
+#########################################
 APPS=(
-	# "XSBench" "bc" "bfs" "cc" "cc_sv" "converter" "pr" "pr_spmv" "sssp" "tc"
+	# "XSBench" "bc" "bfs" "cc" "cc_sv" "converter" "pr" "pr_spmv" "sssp" "tc" "cdn"
 )
 
 APP_PATHS=(
@@ -22,33 +37,24 @@ APP_PATHS=(
 	"$(pwd)/app/gapbs/pr_spmv -g 28 -n 2"
 	"$(pwd)/app/gapbs/sssp -g 28 -n 2"
 	"$(pwd)/app/gapbs/tc -g 28 -n 2"
+	"$(pwd)/app/CacheLib/opt/cachelib/bin/cachebench -json_test_config $(pwd)/app/CacheLib/opt/cachelib/test_configs/hit_ratio/cdn/config.json"
 )
 
-# FOR CAL_BANDWIDTH
 TIME_BINS=(
-	"200" "563" "419" "402" "496" "396" "506" "534" "415" "609"
+	"200" "563" "419" "402" "496" "396" "506" "534" "415" "609" "30"
 )
 
 APP_NUMBER=${#APPS[@]}
 END
 
-# TMP
-APPS=(
-	"cdn"
+#########################################
+#	    For app_mlx.sh		#
+#########################################
+LOCAL_RATIOS=(1 2 3 4 5)
+
+MIX_PATHS=(
+
 )
 
-APP_PATHS=(
-	"$(pwd)/app/CacheLib/opt/cachelib/bin/cachebench -json_test_config $(pwd)/app/CacheLib/opt/cachelib/test_configs/hit_ratio/cdn/config.json"
-)
-
-TIME_BINS=(
-	"30"
-)
-
-APP_NUMBER=${#APPS[@]}
-
-# FOR RUN_MLC
-# RW ratio (1:1 2:1 3:1 3:2 4:1)
-MODES=(5 2 3 4 12)
-NODES=(0 1)
+RATIO_NUMBER=${#LOCAL_RATIOS[@]}
 
