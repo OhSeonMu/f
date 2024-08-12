@@ -1,4 +1,6 @@
 #!/bin/bash
 
+cd ../hmsdk
+
 # Stop HMSDK based on hmsdk.yaml.
-sudo ./damo/damo stop
+sudo ../hmsdk/damo/damo stop

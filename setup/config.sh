@@ -5,10 +5,10 @@ OUTPUT_PATH="$(pwd)/raw_data"
 RESULT_PATH="$(pwd)/result"
 
 # NUMCATL PATH
-# numactl_path=$(pwd)/library/numactl
+NUMACTL_PATH=$(pwd)/setup/hmsdk/numactl
 
 # UTIL PATH
-UTIL_PATH=$(pwd)/util
+UTIL_PATH=$(pwd)/setup/util
 
 :<<"END"
 #########################################
@@ -50,11 +50,17 @@ END
 #########################################
 #	    For app_mlx.sh		#
 #########################################
-LOCAL_RATIOS=(1 2 3 4 5)
+# LOCAL_RATIOS=(1 2 3 4 5)
+LOCAL_RATIOS=(1 2 5)
+
+MIXS=(
+	"mix_1"
+)
 
 MIX_PATHS=(
-
+	"$(pwd)/app/XSBench/openmp-threading/XSBench -s small"
 )
 
 RATIO_NUMBER=${#LOCAL_RATIOS[@]}
+MIX_NUMBER=${#MIX[@]}
 

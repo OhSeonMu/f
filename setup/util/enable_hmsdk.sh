@@ -1,4 +1,6 @@
 #!/bin/bash
 
-# Start HMSDK based on hmsdk.yaml.
-sudo ./damo/damo start hmsdk.yaml
+cd ../hmsdk
+
+# Start HMSDK based on hmsdk.yaml
+sudo ../hmsdk/damo/damo start hmsdk.yaml

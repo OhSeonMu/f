@@ -1,5 +1,6 @@
 #!/bin/bash
 
+cd ../hmsdk
 # The -d/--demote and -p/--promote options can be used multiple times.
 # The SRC and DEST are migration source node id and destination node id.
 # sudo ./tools/gen_config.py -d SRC DST -p SRC DST -o hmsdk.yaml
@@ -12,9 +13,3 @@ echo true | sudo tee /sys/kernel/mm/numa/demotion_enabled
 sudo mount -t cgroup2 none /sys/fs/cgroup
 echo '+memory' | sudo tee /sys/fs/cgroup/cgroup.subtree_control
 sudo mkdir -p /sys/fs/cgroup/hmsdk
-
-# Start HMSDK based on hmsdk.yaml.
-sudo ./damo/damo start hmsdk.yaml
-
-# Stop HMSDK based on hmsdk.yaml.
-sudo ./damo/damo stop

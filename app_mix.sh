@@ -2,18 +2,28 @@
 source ./setup/config.sh
 
 for INDEX in $(seq 0 $((${RATIO_NUMBER} - 1))); do
+	echo ${INDEX}
+	echo ${MIX_NUMBER}
+
 	LOCAL_RATIO=${LOCAL_RATIOS[${INDEX}]}
 	REMOTE_RATIO=1
-	
-	for MIX_PATH in ${MIX_PATH}; do
-		if [ LOCAT_RATIO -eq 5 ] ; then
+		
+	for MIX_INDEX in $(seq 0 $((${MIX_NUMBER}))); do
+		echo ${MIX_INDEX}
+		MIX=${MIXS[${MIX_INDEX}]}
+		MIX_PATH=${MIX_PATHS[${MIX_INDEX}]}
+
+		if [ ${LOCAL_RATIO} -eq 5 ] ; then
+			echo "TIERING"
 			${UTIL_PATH}/enable_hmsdk.sh
-			${MIX_PATH}	
+			# ${MIX_PATH} > ${OUTPUT_PATH}/${MIX}_tiering 	
 			${UTIL_PATH}/disable_hmsdk.sh	
 		else
+			echo "INTERLEAVING"
 			echo ${LOCAL_RATIO} > /sys/kernel/mm/mempolicy/weighted_interleave/node0
 			echo ${REMOTE_RATIO} > /sys/kernel/mm/mempolicy/weighted_interleave/node1
-			numactl --weighted-interleave=0,1 ${MIX_PATH}
+			${NUMACTL_PATH}/numactl -H
+			# --weighted-interleave=0,1 ${MIX_PATH} > ${OUTPUT_PATH}/${MIX}_interleave_${LOCAL_RATIO}_${REMOTE_RATIO} 	
 		fi
 	done
 done
