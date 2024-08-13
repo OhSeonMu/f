@@ -51,16 +51,16 @@ END
 #	    For app_mlx.sh		#
 #########################################
 # LOCAL_RATIOS=(1 2 3 4 5)
-LOCAL_RATIOS=(1 2 5)
+LOCAL_RATIOS=(0 5)
 
 MIXS=(
 	"mix_1"
 )
 
 MIX_PATHS=(
-	"$(pwd)/app/XSBench/openmp-threading/XSBench -s small"
+	"$(pwd)/app/XSBench/openmp-threading/XSBench -s XL -l 100"
 )
 
 RATIO_NUMBER=${#LOCAL_RATIOS[@]}
-MIX_NUMBER=${#MIX[@]}
+MIX_NUMBER=${#MIXS[@]}
 

@@ -9,16 +9,16 @@ CORES_1=(10 11 12 13 14 15 16 17 18 19)
 
 function disable_core()
 {
-	if [$1 -eq 0]; then
-		disable_cores=$CORES_0	
+	local PARAM=$1
+	if [ ${PARAM} -eq 0 ]; then
+		local disable_cores=("${CORES_0[@]}")
 	else
-		disable_cores=$CORES_1
+		local disable_cores=("${CORES_1[@]}")
 	fi
-	
-	for core in "${$disable_cores[@]}"; do
-		echo 0 | sudo tee /sys/devices/system/cpu/cpu${core}/online
+	for core in "${disable_cores[@]}"; do
+		echo 0 | sudo tee "/sys/devices/system/cpu/cpu${core}/online"
 	done
 }
 
 # Disable Remote Node Core
-disabel_core 1
+disable_core 1

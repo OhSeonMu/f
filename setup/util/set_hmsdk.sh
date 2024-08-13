@@ -1,5 +1,8 @@
 #!/bin/bash
 
+
+DIR=$(dirname "$(realpath "$0")")
+cd ${DIR}
 cd ../hmsdk
 # The -d/--demote and -p/--promote options can be used multiple times.
 # The SRC and DEST are migration source node id and destination node id.
