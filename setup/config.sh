@@ -51,7 +51,7 @@ END
 #	    For app_mlx.sh		#
 #########################################
 # LOCAL_RATIOS=(1 2 3 4 5)
-LOCAL_RATIOS=(0 5)
+LOCAL_RATIOS=(5 0)
 
 MIXS=(
 	"mix_1"
