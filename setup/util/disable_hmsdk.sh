@@ -5,4 +5,4 @@ cd ${DIR}
 cd ../hmsdk
 
 # Stop HMSDK based on hmsdk.yaml.
-sudo ../hmsdk/damo/damo stop
+sudo ./damo/damo stop

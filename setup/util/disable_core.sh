@@ -20,5 +20,18 @@ function disable_core()
 	done
 }
 
+function enable_core()
+{
+	local PARAM=$1
+	if [ ${PARAM} -eq 0 ]; then
+		local disable_cores=("${CORES_0[@]}")
+	else
+		local disable_cores=("${CORES_1[@]}")
+	fi
+	for core in "${disable_cores[@]}"; do
+		echo 1 | sudo tee "/sys/devices/system/cpu/cpu${core}/online"
+	done
+}
+
 # Disable Remote Node Core
 disable_core 1
