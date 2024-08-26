@@ -16,11 +16,9 @@ END
 #	For Cal Bandwidth	#
 #################################
 
-:<<"END"
 ./cal_bandwidth.sh
 
 cd graph_script
 python3 ./app_bandwidth.py
 cd ../
-END
 
