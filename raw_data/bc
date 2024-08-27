@@ -1,101 +1,504 @@
-Generate Time:       139.32874
-Build Time:          213.01351
-Graph has 268435453 nodes and 4236159892 undirected edges for degree: 15
-Trial Time:          35.39551
-Trial Time:          40.41023
-Trial Time:          29.59717
-Trial Time:          37.64216
-Trial Time:          28.33286
-Trial Time:          34.93814
-Trial Time:          40.44915
-Trial Time:          27.71479
-Trial Time:          40.05032
-Trial Time:          30.58377
-Average Time:        34.51141
-Elapsed Time: 563.274s
-    CPU Time: 10145.745s
-    Memory Bound: 64.9% of Pipeline Slots
-     | The metric value is high. This may indicate that a significant fraction
-     | of execution pipeline slots could be stalled due to demand memory load
-     | and stores. Explore the metric breakdown by memory hierarchy, memory
-     | bandwidth information, and correlation by memory objects.
-     |
-        L1 Bound: 30.0% of Clockticks
-         | This metric shows how often machine was stalled without missing the
-         | L1 data cache. The L1 cache typically has the shortest latency.
-         | However, in certain cases like loads blocked on older stores, a load
-         | might suffer a high latency even though it is being satisfied by the
-         | L1.
-         |
-        L2 Bound: 0.0% of Clockticks
-        L3 Bound: 5.3% of Clockticks
-         | This metric shows how often CPU was stalled on L3 cache, or contended
-         | with a sibling Core. Avoiding cache misses (L2 misses/L3 hits)
-         | improves the latency and increases performance.
-         |
-        DRAM Bound: 38.7% of Clockticks
-         | This metric shows how often CPU was stalled on the main memory
-         | (DRAM). Caching typically improves the latency and increases
-         | performance.
-         |
-            DRAM Bandwidth Bound: 3.8% of Elapsed Time
-        Store Bound: 0.3% of Clockticks
-        NUMA: % of Remote Accesses: 54.4%
-         | A significant amount of DRAM loads were serviced from remote DRAM.
-         | Wherever possible, try to consistently use data on the same core, or
-         | at least the same package, as it was allocated on.
-         |
-        UPI Utilization Bound: 0.0% of Elapsed Time
-    Loads: 1,456,568,695,750
-    Stores: 542,206,265,700
-    LLC Miss Count: 56,623,963,400
-        Local Memory Access Count: 22,691,588,300
-        Remote Memory Access Count: 32,207,254,350
-        Remote Cache Access Count: 1,590,111,300
-    Average Latency (cycles): 58
-    Total Thread Count: 20
-    Paused Time: 0s
-
-Bandwidth Utilization
-Bandwidth Domain                  Platform Maximum  Observed Maximum  Average  % of Elapsed Time with High BW Utilization(%)
---------------------------------  ----------------  ----------------  -------  ---------------------------------------------
-DRAM, GB/sec                      70                          65.000   21.534                                           0.4%
-DRAM Single-Package, GB/sec       35                          33.800   11.553                                           3.8%
-UPI Utilization Single-link, (%)  100                         48.100   21.305                                           0.0%
-Collection and Platform Info
-    Application Command Line: /home/osm/workspace/ABC/app/gapbs/bc "-g" "28" "-n" "10" 
-    User Name: root
-    Operating System: 5.11.0-27-generic DISTRIB_ID=Ubuntu DISTRIB_RELEASE=20.04 DISTRIB_CODENAME=focal DISTRIB_DESCRIPTION="Ubuntu 20.04.3 LTS"
-    Computer Name: osm-X11DAi-N
-    Result Size: 2.1 GB 
-    Collection start time: 08:59:32 05/08/2024 UTC
-    Collection stop time: 09:08:56 05/08/2024 UTC
-    Collector Type: Event-based sampling driver
-    CPU
-        Name: Intel(R) Xeon(R) Processor code named Cascadelake
-        Frequency: 2.400 GHz
-        Logical CPU Count: 20
-        Max DRAM Single-Package Bandwidth: 35.000 GB/s
-        LLC size: 14.4 MB 
-        Cache Allocation Technology
-            Level 2 capability: not detected
-            Level 3 capability: available
-
-If you want to skip descriptions of detected performance issues in the report,
-enter: vtune -report summary -report-knob show-issues=false -r <my_result_dir>.
-Alternatively, you may view the report in the csv format: vtune -report
-<report_name> -format=csv.
-Intel(R) VTune(TM) Profiler 2024.2.0 (build 628218) feedback tool
-Copyright (C) 2009 Intel Corporation. All rights reserved.
-
-Intel(R) VTune(TM) Profiler 2024.2.0; 628218 experienced an unexpected error.
-
-Please send a problem report: 
-amplxe-feedback --send-crash-report "/tmp/amplxe-log-root/2024-08-05-17-59-24-661587.vtune/crash_info.txt"
-
-Report data may be used to improve product stability. Our apologies for the inconvenience and thank you for your assistance.
-
-Exception: 0xb, Segmentation&nbsp;fault
-Module: libswip.so
-Collecting modules information...
-Collecting system information...
+Generate Time:       1.67696
+Build Time:          1.23734
+Graph has 1048575 nodes and 15699687 undirected edges for degree: 14
+    a                0.00025
+source: 209578
+    b                0.14333
+    p                0.05600
+Trial Time:          0.20035
+    a                0.00006
+source: 18265
+    b                0.11700
+    p                0.05452
+Trial Time:          0.17232
+    a                0.00006
+source: 290555
+    b                0.10363
+    p                0.06483
+Trial Time:          0.16927
+    a                0.00006
+source: 428755
+    b                0.14246
+    p                0.05751
+Trial Time:          0.20079
+    a                0.00006
+source: 972240
+    b                0.09695
+    p                0.06233
+Trial Time:          0.16012
+    a                0.00019
+source: 540428
+    b                0.09596
+    p                0.06328
+Trial Time:          0.16014
+    a                0.00012
+source: 892103
+    b                0.13308
+    p                0.05419
+Trial Time:          0.18817
+    a                0.00006
+source: 184304
+    b                0.13301
+    p                0.06362
+Trial Time:          0.19742
+    a                0.00006
+source: 965164
+    b                0.08933
+    p                0.06150
+Trial Time:          0.15161
+    a                0.00006
+source: 849771
+    b                0.13571
+    p                0.06377
+Trial Time:          0.20028
+    a                0.00006
+source: 103169
+    b                0.10898
+    p                0.05237
+Trial Time:          0.16210
+    a                0.00007
+source: 588577
+    b                0.12250
+    p                0.07145
+Trial Time:          0.19485
+    a                0.00007
+source: 1327
+    b                0.17259
+    p                0.08516
+Trial Time:          0.26092
+    a                0.00008
+source: 812822
+    b                0.74155
+    p                0.48271
+Trial Time:          1.22958
+    a                0.00027
+source: 735765
+    b                0.49384
+    p                0.06185
+Trial Time:          0.55669
+    a                0.00006
+source: 556843
+    b                0.12308
+    p                0.06102
+Trial Time:          0.18487
+    a                0.00007
+source: 420245
+    b                0.15107
+    p                0.07143
+Trial Time:          0.22327
+    a                0.00007
+source: 109151
+    b                0.14062
+    p                0.06058
+Trial Time:          0.20197
+    a                0.00007
+source: 439296
+    b                0.15751
+    p                0.06496
+Trial Time:          0.22326
+    a                0.00006
+source: 120644
+    b                0.15402
+    p                0.07080
+Trial Time:          0.22565
+    a                0.00009
+source: 382151
+    b                0.15600
+    p                0.07661
+Trial Time:          0.23341
+    a                0.00007
+source: 371985
+    b                0.12413
+    p                0.07184
+Trial Time:          0.19674
+    a                0.00006
+source: 957587
+    b                0.14845
+    p                0.06574
+Trial Time:          0.21496
+    a                0.00006
+source: 674403
+    b                0.13716
+    p                0.05819
+Trial Time:          0.19613
+    a                0.00006
+source: 833795
+    b                0.12880
+    p                0.05600
+Trial Time:          0.18557
+    a                0.00006
+source: 721796
+    b                0.14923
+    p                0.06497
+Trial Time:          0.21496
+    a                0.00006
+source: 882875
+    b                0.11809
+    p                0.05609
+Trial Time:          0.17501
+    a                0.00006
+source: 934016
+    b                0.13717
+    p                0.05455
+Trial Time:          0.19251
+    a                0.00007
+source: 126646
+    b                0.13992
+    p                0.06235
+Trial Time:          0.20306
+    a                0.00008
+source: 749991
+    b                0.09907
+    p                0.06389
+Trial Time:          0.16384
+    a                0.00008
+source: 480585
+    b                0.14171
+    p                0.06158
+Trial Time:          0.20411
+    a                0.00007
+source: 163032
+    b                0.14301
+    p                0.05855
+Trial Time:          0.20233
+    a                0.00007
+source: 47156
+    b                0.09228
+    p                0.05626
+Trial Time:          0.14939
+    a                0.00007
+source: 532757
+    b                0.13804
+    p                0.05591
+Trial Time:          0.19472
+    a                0.00006
+source: 50484
+    b                0.14393
+    p                0.06234
+Trial Time:          0.20709
+    a                0.00006
+source: 467317
+    b                0.13466
+    p                0.06421
+Trial Time:          0.19965
+    a                0.00007
+source: 630819
+    b                0.09364
+    p                0.06316
+Trial Time:          0.15759
+    a                0.00007
+source: 203950
+    b                0.09408
+    p                0.05648
+Trial Time:          0.15134
+    a                0.00006
+source: 68808
+    b                0.14381
+    p                0.05976
+Trial Time:          0.20434
+    a                0.00006
+source: 693805
+    b                0.11884
+    p                0.05235
+Trial Time:          0.17195
+    a                0.00006
+source: 925409
+    b                0.14178
+    p                0.05732
+Trial Time:          0.19987
+    a                0.00006
+source: 951709
+    b                0.13392
+    p                0.06325
+Trial Time:          0.19796
+    a                0.00006
+source: 230414
+    b                0.10898
+    p                0.06424
+Trial Time:          0.17399
+    a                0.00007
+source: 769230
+    b                0.12575
+    p                0.06261
+Trial Time:          0.18914
+    a                0.00007
+source: 561963
+    b                0.14310
+    p                0.05827
+Trial Time:          0.20215
+    a                0.00007
+source: 188197
+    b                0.09348
+    p                0.05651
+Trial Time:          0.15076
+    a                0.00007
+source: 560818
+    b                0.11042
+    p                0.05327
+Trial Time:          0.16454
+    a                0.00007
+source: 900595
+    b                0.11037
+    p                0.05376
+Trial Time:          0.16491
+    a                0.00006
+source: 36322
+    b                0.13893
+    p                0.05628
+Trial Time:          0.19600
+    a                0.00007
+source: 87889
+    b                0.13246
+    p                0.05450
+Trial Time:          0.18774
+    a                0.00006
+source: 575255
+    b                0.12064
+    p                0.05336
+Trial Time:          0.17478
+    a                0.00006
+source: 828333
+    b                0.11405
+    p                0.05253
+Trial Time:          0.16736
+    a                0.00007
+source: 598876
+    b                0.14142
+    p                0.06167
+Trial Time:          0.20388
+    a                0.00006
+source: 244625
+    b                0.14413
+    p                0.05930
+Trial Time:          0.20422
+    a                0.00007
+source: 869797
+    b                0.10632
+    p                0.07032
+Trial Time:          0.17740
+    a                0.00006
+source: 788772
+    b                0.15054
+    p                0.06142
+Trial Time:          0.21272
+    a                0.00006
+source: 92733
+    b                0.10607
+    p                0.05571
+Trial Time:          0.16257
+    a                0.00006
+source: 283380
+    b                0.09218
+    p                0.06373
+Trial Time:          0.15669
+    a                0.00006
+source: 334753
+    b                0.14977
+    p                0.06157
+Trial Time:          0.21212
+    a                0.00007
+source: 139580
+    b                0.09850
+    p                0.05785
+Trial Time:          0.15710
+    a                0.00007
+source: 620977
+    b                0.14353
+    p                0.05874
+Trial Time:          0.20303
+    a                0.00006
+source: 834521
+    b                0.14264
+    p                0.05816
+Trial Time:          0.20159
+    a                0.00006
+source: 1030126
+    b                0.12246
+    p                0.05530
+Trial Time:          0.17858
+    a                0.00006
+source: 573031
+    b                0.09279
+    p                0.06145
+Trial Time:          0.15501
+    a                0.00006
+source: 616003
+    b                0.14394
+    p                0.06484
+Trial Time:          0.20954
+    a                0.00007
+source: 242432
+    b                0.14229
+    p                0.06182
+Trial Time:          0.20487
+    a                0.00006
+source: 298000
+    b                0.12602
+    p                0.05294
+Trial Time:          0.17974
+    a                0.00006
+source: 858753
+    b                0.10963
+    p                0.05303
+Trial Time:          0.16343
+    a                0.00007
+source: 256757
+    b                0.13712
+    p                0.05608
+Trial Time:          0.19404
+    a                0.00006
+source: 766731
+    b                0.09344
+    p                0.05609
+Trial Time:          0.15031
+    a                0.00006
+source: 972686
+    b                0.13194
+    p                0.05428
+Trial Time:          0.18697
+    a                0.00007
+source: 681576
+    b                0.09712
+    p                0.06323
+Trial Time:          0.16112
+    a                0.00007
+source: 601554
+    b                0.10511
+    p                0.05295
+Trial Time:          0.15883
+    a                0.00006
+source: 846070
+    b                0.12990
+    p                0.06275
+Trial Time:          0.19342
+    a                0.00006
+source: 265274
+    b                0.13669
+    p                0.05569
+Trial Time:          0.19317
+    a                0.00007
+source: 624490
+    b                0.11064
+    p                0.06217
+Trial Time:          0.17357
+    a                0.00007
+source: 439460
+    b                0.12038
+    p                0.06324
+Trial Time:          0.18438
+    a                0.00007
+source: 350271
+    b                0.11130
+    p                0.05255
+Trial Time:          0.16462
+    a                0.00006
+source: 520920
+    b                0.10192
+    p                0.05334
+Trial Time:          0.15603
+    a                0.00006
+source: 949456
+    b                0.09158
+    p                0.05607
+Trial Time:          0.14842
+    a                0.00007
+source: 339385
+    b                0.13717
+    p                0.05532
+Trial Time:          0.19327
+    a                0.00006
+source: 681799
+    b                0.10382
+    p                0.06362
+Trial Time:          0.16828
+    a                0.00007
+source: 722693
+    b                0.14299
+    p                0.05920
+Trial Time:          0.20296
+    a                0.00006
+source: 142915
+    b                0.09216
+    p                0.05602
+Trial Time:          0.14896
+    a                0.00006
+source: 676918
+    b                0.09356
+    p                0.05449
+Trial Time:          0.14882
+    a                0.00006
+source: 41736
+    b                0.09893
+    p                0.06349
+Trial Time:          0.16320
+    a                0.00007
+source: 956826
+    b                0.08880
+    p                0.06139
+Trial Time:          0.15096
+    a                0.00008
+source: 599969
+    b                0.14336
+    p                0.06003
+Trial Time:          0.20422
+    a                0.00007
+source: 378889
+    b                0.12127
+    p                0.06264
+Trial Time:          0.18468
+    a                0.00007
+source: 973640
+    b                0.11011
+    p                0.06247
+Trial Time:          0.17334
+    a                0.00007
+source: 399009
+    b                0.14197
+    p                0.06079
+Trial Time:          0.20353
+    a                0.00006
+source: 203688
+    b                0.14136
+    p                0.06252
+Trial Time:          0.20465
+    a                0.00007
+source: 668644
+    b                0.09923
+    p                0.06437
+Trial Time:          0.16439
+    a                0.00006
+source: 593943
+    b                0.10370
+    p                0.05465
+Trial Time:          0.15920
+    a                0.00007
+source: 495405
+    b                0.10869
+    p                0.07070
+Trial Time:          0.18023
+    a                0.00008
+source: 1007961
+    b                0.10074
+    p                0.06122
+Trial Time:          0.16274
+    a                0.00006
+source: 680553
+    b                0.14026
+    p                0.05830
+Trial Time:          0.19935
+    a                0.00007
+source: 826174
+    b                0.10423
+    p                0.06696
+Trial Time:          0.17203
+    a                0.00007
+source: 877157
+    b                0.11483
+    p                0.05576
+Trial Time:          0.17139
+    a                0.00006
+source: 773307
+    b                0.14707
+    p                0.06393
+Trial Time:          0.21177
+Average Time:        0.19867

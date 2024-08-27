@@ -4,7 +4,7 @@ from config import *
 
 def make_graph(app) : 
     result_file = result_path + app + "_bandwidth.csv"
-    graph_file  = graph_path  + app + "_bandwidh.png"
+    graph_file  = graph_path  + app + "_bandwidth.png"
     
     data = pd.read_csv(result_file)
 
@@ -16,11 +16,11 @@ def make_graph(app) :
     plt.xlabel('Time (s)')
     plt.ylabel('Bandwidth (GB/s)')
     
-    # plt.ylim(64, 600)
+    plt.ylim(0, 40)
     plt.grid(True)
     
     plt.savefig(graph_file)
-    plt.show()
+    # plt.show()
 
 # make graph
 for app in APPS :
