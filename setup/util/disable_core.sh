@@ -35,3 +35,4 @@ function enable_core()
 
 # Disable Remote Node Core
 disable_core 1
+# disable_core 1

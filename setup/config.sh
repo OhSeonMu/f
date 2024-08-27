@@ -19,12 +19,11 @@ NODES=(0 1)
 #########################################
 #	For cal_bandwidth.sh		#
 #########################################
+:<<"END"
 APPS=(
-	# "XSBench" "bc" "bfs" "cc" "cc_sv" "converter" "pr" "pr_spmv" "sssp" "tc" "cdn"
-	600 605 620 623 625 631 641 648 657 603 607 619 621 628 638 644 649
+	XSBench_xl bc_28 bfs_28 cc_28 cc_sv_28 converter_28 pr_28 pr_spmv_28 sssp_28 tc_28 cdn 600 605 620 623 625 631 641 648 657 603 607 619 621 628 638 644 649
 )
 
-:<<"END"
 APP_PATHS=(
 	"$(pwd)/app/XSBench/openmp-threading/XSBench -s XL -l 150"
 	# gapbs에서 -i option 도 사용할 수 있다. 
@@ -38,10 +37,6 @@ APP_PATHS=(
 	"$(pwd)/app/gapbs/sssp -g 28 -n 2"
 	"$(pwd)/app/gapbs/tc -g 28 -n 2"
 	"$(pwd)/app/CacheLib/opt/cachelib/bin/cachebench -json_test_config $(pwd)/app/CacheLib/opt/cachelib/test_configs/hit_ratio/cdn/config.json"
-)
-END
-
-APP_PATHS=(
 	"$(pwd)/setup/tool/run_speccpu.sh 600"
 	"$(pwd)/setup/tool/run_speccpu.sh 605"
 	"$(pwd)/setup/tool/run_speccpu.sh 620"
@@ -61,8 +56,29 @@ APP_PATHS=(
 	"$(pwd)/setup/tool/run_speccpu.sh 649"
 )
 
+APP_NUMBER=${#APPS[@]}
+
 TIME_BINS=(
 	# "200" "563" "419" "402" "496" "396" "506" "534" "415" "609" "30"
+)
+END
+
+APPS=(
+	# 600
+	# bc
+	XSBench
+)
+
+APP_PATHS=(
+	# "${TOOL_PATH}/run_speccpu.sh 600"
+	# "$(pwd)/app/gapbs/client 1 100 127.0.0.1 22"
+	"$(pwd)/app/XSBench/openmp-threading/client 1 127.0.0.1 22" 
+)
+
+BUILD_PATHS=(
+	# "0"
+	# "$(pwd)/app/gapbs/bc -g 20 -S -p 22"
+	"$(pwd)/app/XSBench/openmp-threading/XSBench -s large -t 4 -l 30"
 )
 
 APP_NUMBER=${#APPS[@]}

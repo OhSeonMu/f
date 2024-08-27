@@ -28,13 +28,13 @@ done
 
 if [ ${check} -eq 0 ]; then
 	# ref
-	cd ./benchspec/CPU/${1}*/run/run_base_refspeed_mytest-m64.0000
+	# cd ./benchspec/CPU/${1}*/run/run_base_refspeed_mytest-m64.0000
 	# test
-	# cd ./benchspec/CPU/${1}*/run/run_base_test_mytest-m64.0000
+	cd ./benchspec/CPU/${1}*/run/run_base_test_mytest-m64.0000
 else
 	# ref
-	cd ./benchspec/CPU/${1}*/run/run_base_refrate_mytest-m64.0000
+	# cd ./benchspec/CPU/${1}*/run/run_base_refrate_mytest-m64.0000
 	# test
-	# cd ./benchspec/CPU/${1}*/run/run_base_test_mytest-m64.0000
+	cd ./benchspec/CPU/${1}*/run/run_base_test_mytest-m64.0000
 fi
 specinvoke 

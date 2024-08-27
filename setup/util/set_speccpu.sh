@@ -14,13 +14,13 @@ runcpu --config config.cfg --loose --action clean
 # ref
 runcpu --config config.cfg --loose --action build --threads 4 --tune base all
 # test
-# runcpu --config config.cfg --loose --action build --threads 1 --tune base --size test all
+runcpu --config config.cfg --loose --action build --threads 4 --tune base --size test all
 
 # setup
 # ref
 runcpu --config config.cfg --loose --action runsetup --threads 4 --tune base all
 # test
-# runcpu --config config.cfg --loose --action runsetup --threads 1 --tune base --size test all
+runcpu --config config.cfg --loose --action runsetup --threads 4 --tune base --size test all
 
 # run
 :<<"END"
