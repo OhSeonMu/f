@@ -4,8 +4,9 @@
 output_path="./raw_data"
 
 # Core Info
-CORES_0=(0 1 2 3 4 5 6 7 8 9)
-CORES_1=(10 11 12 13 14 15 16 17 18 19)
+# CORES_0=(0 1 2 3 4 5 6 7 8 9)
+CORES_0=($(numactl --hardware | grep "node 0 cpus:" | awk -F: '{print $2}'))
+CORES_1=($(numactl --hardware | grep "node 1 cpus:" | awk -F: '{print $2}'))
 
 function disable_core()
 {
