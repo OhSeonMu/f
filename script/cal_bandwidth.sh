@@ -10,6 +10,7 @@ for INDEX in $(seq 0 $((${APP_NUMBER} - 1))); do
 	rm ${OUTPUT_PATH}/${APP}
 	rm -rf ${OUTPUT_PATH}/${APP}_bandwidth 
 	rm ${RESULT_PATH}/${APP}_bandwidth.csv
+	# For memory footprint
 	rm ${OUTPUT_PATH}/${APP}_footprint.csv 
 
 	echo ${APP}
