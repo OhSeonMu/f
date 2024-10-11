@@ -7,20 +7,20 @@ DIR=$(dirname "$(realpath "$0")")
 
 # Use peak instead of peak (no reason) 
 # clean
-# runcpu --config config.cfg --loose --action clean --tune base all
-runcpu --config config.cfg --loose --action clean
+runcpu --config config.cfg --loose --action clean --tune base all
+# runcpu --config config.cfg --loose --action clean
 
 # build
 # ref
-runcpu --config config.cfg --loose --action build --threads 4 --tune base all
+runcpu --config config.cfg --loose --action build --threads 4 --tune base --size ref all
 # test
-runcpu --config config.cfg --loose --action build --threads 4 --tune base --size test all
+# runcpu --config config.cfg --loose --action build --threads 4 --tune base --size test all
 
 # setup
 # ref
-runcpu --config config.cfg --loose --action runsetup --threads 4 --tune base all
+runcpu --config config.cfg --loose --action runsetup --threads 4 --tune base --size ref all
 # test
-runcpu --config config.cfg --loose --action runsetup --threads 4 --tune base --size test all
+# runcpu --config config.cfg --loose --action runsetup --threads 4 --tune base --size test all
 
 # run
 :<<"END"

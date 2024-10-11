@@ -8,17 +8,18 @@ source ./setup/config.sh
 # Node
 # NODES=(0 1)
 
+cpus="1-25"
 for node in "${NODES[@]}"; do
 	if [ ${node} -eq 0 ]; then
-		cpus="1-9"
+		alloc_core=0
 	else
-		cpus="11-19"
+		alloc_core=26
 	fi
 
 	# R:W=1:0
-	./app/mlc/Linux/mlc --loaded_latency -c0 -i0 -j${node} -k${cpus} -R > ${OUTPUT_PATH}/mlc_node${node}_mode0
+	./app/mlc/Linux/mlc --loaded_latency -c${alloc_core} -i${alloc_core} -j${node} -k${cpus} -R > ${OUTPUT_PATH}/mlc_node${node}_mode0
 	# R:W=M:N
 	for mode in "${MODES[@]}"; do 
-		./app/mlc/Linux/mlc --loaded_latency -c0 -i0 -j${node} -k${cpus} -W${mode} > ${OUTPUT_PATH}/mlc_node${node}_mode${mode}
+		./app/mlc/Linux/mlc --loaded_latency -c${alloc_core} -i${alloc_core} -j${node} -k${cpus} -W${mode} > ${OUTPUT_PATH}/mlc_node${node}_mode${mode}
 	done
 done

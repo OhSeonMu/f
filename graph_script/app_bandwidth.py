@@ -20,7 +20,7 @@ def make_graph(app) :
     plt.grid(True)
     
     plt.savefig(graph_file)
-    # plt.show()
+    plt.show()
 
 # make graph
 for app in APPS :

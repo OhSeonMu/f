@@ -5,12 +5,11 @@ function set_openmp() {
 }
 
 function unset_openmp() {
-	sed -i "/# Set OMP_NUM_THREADS to $1/d" ~/.bashrc
-	sed -i "/export OMP_NUM_THREADS=$1/d" ~/.bashrc
+	sed -i  "# Set OMP_NUM_THREADS to ${1}\nexport OMP_NUM_THREADS=${1}" ~/.bashrc
 }
 
+unset_openmp 4
 set_openmp 4
-# unset_openmp 4
 
 source ~/.bashrc
 

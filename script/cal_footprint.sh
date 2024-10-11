@@ -9,7 +9,12 @@ for INDEX in $(seq 0 $((${APP_NUMBER} - 1))); do
 
 	${APP_PATH} &
 	APP_PID=$!
-	${TOOL_PATH}/print_footprint.sh $! ${APP} >> ${OUTPUT_PATH}/${APP}_footprint.csv &
+	sleep 1
+	echo ${APP_PID}
+	pids=$(pstree -p ${APP_PID} | grep -oP '\(\d+\)' | grep -oP '\d+') 
+	echo ${pids[@]}
+	${TOOL_PATH}/print_footprint.sh ${APP_PID} ${APP} &
+	# >> ${OUTPUT_PATH}/${APP}_footprint.csv &
 	TOOL_PID=$!
 	wait ${APP_PID}
 	kill -9 ${TOOL_PID}

@@ -1,5 +1,6 @@
 import pandas as pd 
 import matplotlib.pyplot as plt
+from config import *
 
 # Directory Info
 output_path="../raw_data/"
@@ -7,12 +8,6 @@ result_path="../result/"
 graph_path="../graph/"
 
 # RW ratio
-MODES=[0, 5, 2, 3, 4, 12]
-RATIO=["1:0", "1:1", "2:1", "3:1", "3:2", "4:1"]
-COLORS=['red', 'orange', 'green', 'blue', 'navy', 'purple']
-
-# Node
-NODES=[0,1]
 
 def make_csv(result_file, node, mode) :
     output_file = output_path + "mlc_node" + str(node) + "_mode" + str(mode)
@@ -30,7 +25,7 @@ def make_csv(result_file, node, mode) :
 
             if check :
                 latency.append(line.split()[1])
-                bandwidth.append(line.split()[2])
+                bandwidth.append(float(line.split()[2])/1024)
     
     with open(result_file, "a") as file :
         for i in range(0,len(latency)) :
@@ -53,19 +48,20 @@ def make_graph(node) :
         ratio = ratios[index]
         color = COLORS[index]
         subset = data[data['r:w'] == ratio]
-        plt.plot(subset['bandwidth(MB/s)'],subset['latency(ns)'],marker='o', linestyle='-', color=color, label=f"{ratio}")
+        plt.plot(subset['bandwidth(GB/s)'],subset['latency(ns)'],marker='o', linestyle='-', color=color, label=f"{ratio}")
 
-    plt.xlabel('bandwidth (MB/s)')
+    plt.xlabel('bandwidth (GB/s)')
     plt.ylabel('latency (ns)')
     plt.legend()
     
     #plt.yscale('log', base = 2)
-    #plt.ylim(64, 1024)
-    plt.ylim(64, 600)
+    plt.ylim(64, 1024)
+    # plt.ylim(64, 600)
+    plt.xlim(0, 70)
     plt.grid(True)
     
     plt.savefig(graph_file)
-    plt.show()
+    #plt.show()
 
 for node in NODES :
     if node :
@@ -74,7 +70,7 @@ for node in NODES :
         result_file = result_path + "mlc_local.csv"
 
     with open(result_file, "w") as file :
-        file.write("r:w,bandwidth(MB/s),latency(ns)\n")
+        file.write("r:w,bandwidth(GB/s),latency(ns)\n")
 
     # make result 
     for mode in MODES :

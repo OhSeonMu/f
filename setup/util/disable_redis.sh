@@ -9,7 +9,9 @@ function disable_redis(){
 	sudo systemctl stop redis-server
 }
 
-fuction enable_redis(){
+function enable_redis(){
 	sudo systemctl status redis-server
 	sudo systemctl start redis-server
 }
+
+disable_redis
